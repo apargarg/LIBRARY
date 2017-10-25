@@ -1,0 +1,86 @@
+
+<div class="row" style="margin-left:20px">
+<div class="col-lg-8 col-md-7 col-sm-6">
+    <h1>Manage Students</h1>
+        <p class="lead">Add, Remove or Modify Student Records</p>
+  </div>
+</div>
+
+  <div class="row" style="margin:0 auto;float:none;">
+
+   <div class="col-md-3"><h2 class="lead" style="text-align:center">Insert a new Student Record</h2>
+  <form class="form-horizontal" (submit)="addstud()">
+  <fieldset>
+    <legend>Details:</legend>
+    <div class="form-group">
+      <label for="studname" class="col-lg-2 control-label">Student Name</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="studname" placeholder="Name" type="text" [(ngModel)]="studname" name="studname">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="studroll" class="col-lg-2 control-label">Student RollNo.</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="studroll" placeholder="Roll No." type="text" [(ngModel)]="studroll" name="studroll">
+      </div>
+    </div>
+    <!-- <p style="color:red;text-align:center;">
+      {{ warn }}
+    </p> -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </fieldset>
+  </form>
+  </div>
+   <div class="col-md-6"><h2 class="lead" style="text-align:center">Student List</h2>
+    <p style="text-align:center">CLick on #student to edit</p>
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Roll No.</th>
+      <!-- <th>#Books Borrowed</th> -->
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stud of studs">
+      <td><button style="background-color:transparent;border:none;" (click)="editstud(stud)">{{ stud.order }}</button></td>
+      <td>{{ stud.name }}</td>
+      <td>{{ stud.roll }}</td>
+      <!-- <td>{{ stud.borrow }}</td> -->
+      <td><button style="background-color:transparent;border:none;" (click)="deletestud(stud.roll)"><i class="fa fa-trash" aria-hidden="true"></i>
+</button></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+   <div class="col-md-3"><h2 class="lead" style="text-align:center">Modify Student Record</h2>
+  <form class="form-horizontal" (submit)="updatestud()">
+  <fieldset>
+    <legend>Edit Details:</legend>
+    <div class="form-group">
+      <label for="mod_studname" class="col-lg-2 control-label">Edit Name</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_studname" placeholder="Name" type="text" [(ngModel)]="mod_studname" name="mod_studname">
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label for="mod_studroll" class="col-lg-2 control-label">Edit RollNo.</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_studroll" placeholder="Roll No." type="text" [(ngModel)]="mod_studroll" name="mod_studroll">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </fieldset>
+  </form></div>
+  
+</div> 

@@ -1,0 +1,155 @@
+<div class="row" style="margin-left:20px">
+<div class="col-lg-8 col-md-7 col-sm-6">
+    <h1>Search for Records</h1>
+        <p class="lead">Search student and book records with borrowing details</p>
+  </div>
+</div>
+   
+   <div class="row" style="margin:0 auto;float:none;">
+        <div class="col-md-4">
+          <h2 class="lead" style="text-align:center">Search for a book</h2>
+          <p style="text-align:center">Use Book ID for issue details</p><br>
+          
+<form class="form-horizontal" (submit)="srchbook()" style="margin:0 auto;">
+  <fieldset>
+    
+    <div class="form-group">
+      
+      <div class="col-lg-10">
+        <input class="form-control" id="bookquery" placeholder="Search Query" type="text" [(ngModel)]="bookquery" name="bookquery">
+      </div>
+    </div>
+    <div class="radio">
+     <label>
+    <input type="radio" [(ngModel)]="booksrch" name="booksrch" id="bookid" value="Book ID" checked>
+    Book ID
+  </label>
+    </div>
+<div class="radio">
+     <label>
+    <input type="radio" name="booksrch" id="bookname" [(ngModel)]="booksrch" value="Book Name">
+    Book Name
+  </label>
+    </div>
+<div class="radio">
+     <label>
+    <input type="radio" name="booksrch" id="bookauth" [(ngModel)]="booksrch" value="Book Author">
+    Book Author
+  </label>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+        </div>
+        <div class="col-md-4">
+          <h2 class="lead" style="text-align:center">Search for a student</h2>
+          <p style="text-align:center">Use Roll No. for issue details</p><br>
+          <form class="form-horizontal" (submit)="srchstud()" style="margin:0 auto;">
+  <fieldset>
+    
+    <div class="form-group">
+      <!-- <label for="bookname" class="col-lg-2 control-label">Book Name</label> -->
+      <div class="col-lg-10">
+        <input class="form-control" id="studquery" placeholder="Search Query" type="text" [(ngModel)]="studquery" name="studquery">
+      </div>
+    </div>
+    <div class="radio">
+     <label>
+    <input type="radio" [(ngModel)]="studsrch" name="studsrch" id="studroll" value="Student Roll No." checked>
+    Student Roll No.
+  </label>
+    </div>
+<div class="radio">
+     <label>
+    <input type="radio" name="studsrch" id="studname" [(ngModel)]="studsrch" value="Student Name">
+    Student Name
+  </label>
+    </div>
+   <br>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="lead" style="text-align:center">Search by Date</h2>
+          <p style="text-align:center">Use ID or Roll No. for further filtering</p><br>
+          <form class="form-horizontal" (submit)="srchdate()" style="margin:0 auto;">
+  <fieldset>
+    
+    <div class="form-group">
+      
+      <div class="col-lg-10">
+        <input class="form-control" id="datequery" placeholder="yyyy-mm-dd" type="date" [(ngModel)]="datequery" name="datequery">
+      </div>
+    </div>
+    <div class="form-group">
+      
+      <div class="col-lg-10">
+        <input class="form-control" id="datequery2" placeholder="Search Query" type="date" [(ngModel)]="datequery2" name="datequery2">
+      </div>
+    </div>
+    <div class="radio">
+     <label>
+    <input type="radio" [(ngModel)]="datesrch" name="datesrch" id="datebookid" value="Book ID" checked>
+    Book ID
+  </label>
+    </div>
+<div class="radio">
+     <label>
+    <input type="radio" name="datesrch" id="datestudroll" [(ngModel)]="datesrch" value="Student Roll No.">
+    Student Roll No.
+  </label>
+    </div>
+<div class="radio">
+     <label>
+    <input type="radio" name="datesrch" id="dateall" [(ngModel)]="datesrch" value="All">
+    All
+  </label>
+    </div>
+   <br>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+        </div>
+        
+        
+        
+  </div> 
+  <div class="row">
+   <div class="col-md-12">
+     
+    <h2 class="lead" style="text-align:center">Search Results</h2>
+          
+          <p style="text-align:center">{{ found_or_not }}</p>
+          <p style="text-align:center">{{ tot_res }}</p>
+          
+          <table class="table table-striped table-hover " style="table-layout:fixed;">
+  <thead>
+    <tr>
+      <th *ngFor="let heading of headings">{{ heading }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of results">
+      
+      <td *ngFor="let data of result">{{ data }}</td>
+    
+    </tr>
+  </tbody>
+  </table>
+ 
+        </div> </div>

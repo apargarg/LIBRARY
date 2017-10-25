@@ -1,0 +1,128 @@
+<div class="row" style="margin-left:20px">
+<div class="col-lg-8 col-md-7 col-sm-6">
+    <h1>Issue/Return Book</h1>
+        <p class="lead">Issue and Return Books with fine calculations</p>
+  </div>
+</div>
+
+ <div class="row container" style="margin:0 auto;float:none;">
+   <div class="col-md-6">
+     <h2 class="lead" style="text-align:center">Issue a Book</h2>
+  <form class="form-horizontal" (submit)="addissue()">
+  <fieldset>
+    <legend>Details:</legend>
+    <div class="form-group">
+      <label for="issueid" class="col-lg-2 control-label">Book ID</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="issueid" placeholder="Book ID" type="text" [(ngModel)]="issueid" name="issueid">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="issueroll" class="col-lg-2 control-label">Student Roll</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="issueroll" placeholder="Roll No." type="text" [(ngModel)]="issueroll" name="issueroll">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="issuedate" class="col-lg-2 control-label">Issue Date</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="issuedate" placeholder="yyyy-mm-dd" type="date" [(ngModel)]="issuedate" name="issuedate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="issuetill" class="col-lg-2 control-label">Return Date</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="issuetill" placeholder="yyyy-mm-dd" type="date" [(ngModel)]="issuetill" name="issuetill">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-6">
+        <button type="submit" class="btn btn-primary">Issue</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+    <h2 class="lead" style="text-align:center">Issued Books List</h2>
+    
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Book ID</th>
+      <th>Student Roll No.</th>
+      <th>Issued on</th>
+      <th>Till Date</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let issue of issues">
+      <td>{{ issue.order }}</td>
+      <td>{{ issue.id }}</td>
+      <td>{{ issue.roll }}</td>
+      <td>{{ issue.date }}</td>
+      <td>{{ issue.till }}</td>
+      
+    </tr>
+  </tbody>
+  </table>
+  </div>
+   <div class="col-md-6"><h2 class="lead" style="text-align:center">Return a Book</h2>
+    
+    <form class="form-horizontal" (submit)="addreturn()">
+  <fieldset>
+    <legend>Details:</legend>
+    <div class="form-group">
+      <label for="returnid" class="col-lg-2 control-label">Book ID</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="returnid" placeholder="Book ID" type="text" [(ngModel)]="returnid" name="returnid">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="returndate" class="col-lg-2 control-label">Date Returned</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="returndate" placeholder="yyyy-mm-dd" type="date" [(ngModel)]="returndate" name="returndate">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-6">
+        <button type="submit" class="btn btn-primary">Return</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+    <h2 class="lead" style="text-align:center">Returned Books List</h2>
+    
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Book ID</th>
+      <th>Student Roll No.</th>
+      <th>Returned On</th>
+      <th>Fine</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let return of returns">
+      <td>{{ return.order }}</td>
+      <td>{{ return.id }}</td>
+      <td>{{ return.roll }}</td>
+      <td>{{ return.date }}</td>
+      <td>{{ return.fine }}</td>
+      
+    </tr>
+  </tbody>
+  </table>
+  </div>
+  
+</div> 
+  
+
+<!-- <div class="row container" style="margin:0 auto;float:none;">
+   <div class="col-md-6">
+    
+   </div>
+   <div class="col-md-6"></div>
+  </div> -->

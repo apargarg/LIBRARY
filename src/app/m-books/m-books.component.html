@@ -1,0 +1,112 @@
+
+<div class="row" style="margin-left:20px">
+<div class="col-lg-8 col-md-7 col-sm-6">
+    <h1>Manage Books</h1>
+        <p class="lead">Add, Remove or Modify Book Records</p>
+  </div>
+</div>
+
+ <div class="row" style="margin:0 auto;float:none;">
+   <div class="col-md-3"><h2 class="lead" style="text-align:center">Insert a new Book</h2>
+  <form class="form-horizontal" (submit)="addbook()">
+  <fieldset>
+    <legend>Details:</legend>
+    <div class="form-group">
+      <label for="bookname" class="col-lg-2 control-label">Book Name</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="bookname" placeholder="Book Name" type="text" [(ngModel)]="bookname" name="bookname">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bookauth" class="col-lg-2 control-label">Book Author</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="bookauth" placeholder="Book Author" type="text" [(ngModel)]="bookauth" name="bookauth">
+      </div>
+    </div>
+  <div class="form-group">
+      <label for="bookid" class="col-lg-2 control-label">Book ID</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="bookid" placeholder="Book ID" type="text" [(ngModel)]="bookid" name="bookid">
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label for="no_copy" class="col-lg-2 control-label">No. of copies</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="no_copy" placeholder="No. of copies" type="number" [(ngModel)]="copies" name="copies">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </fieldset>
+  </form>
+  
+  </div>
+   <div class="col-md-6"><h2 class="lead" style="text-align:center">Book List</h2>
+    <p style="text-align:center">CLick on #book to edit</p>
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Book Name</th>
+      <th>Book Author</th>
+      <th>Book ID</th>
+      <!-- <th>Total No. of Copies</th> -->
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td><button style="background-color:transparent;border:none;" (click)="editbook(book)">{{ book.order }}</button></td>
+      <td>{{ book.name }}</td>
+      <td>{{ book.auth }}</td>
+      <td>{{ book.id }}</td>
+      <!-- <td>{{ book.copies }}</td> -->
+      <td><button style="background-color:transparent;border:none;" (click)="deletebook(book.id)"><i class="fa fa-trash" aria-hidden="true"></i>
+</button></td>
+    </tr>
+  </tbody>
+  </table>
+  
+  </div>
+   <div class="col-md-3"><h2 class="lead" style="text-align:center">Modify Book Record</h2>
+  <form class="form-horizontal" (submit)="updatebook()">
+  <fieldset>
+    <legend>Edit details:</legend>
+    <div class="form-group">
+      <label for="mod_bookname" class="col-lg-2 control-label">New Name</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_bookname" placeholder="Book Name" type="text" [(ngModel)]="mod_bookname" name="mod_bookname">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mod_bookauth" class="col-lg-2 control-label">Edit Author</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_bookauth" placeholder="Book Author" type="text" [(ngModel)]="mod_bookauth" name="mod_bookauth">
+      </div>
+    </div>
+  <!-- <div class="form-group">
+      <label for="mod_bookid" class="col-lg-2 control-label">New ID</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_bookid" placeholder="Book ID" type="text" [(ngModel)]="mod_bookid" name="mod_bookid">
+      </div>
+    </div> -->
+    <!-- <div class="form-group">
+      <label for="mod_no_copy" class="col-lg-2 control-label">No of copies</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="mod_no_copy" placeholder="No. of copies" type="number" [(ngModel)]="mod_copies" name="mod_copies">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </fieldset>
+  </form>
+  
+  </div>
+  
+</div> 
